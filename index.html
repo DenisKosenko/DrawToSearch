@@ -31,6 +31,10 @@
              tablet.addEventListener("mousedown", Down);
              tablet.addEventListener("mouseup",   Up);
              tablet.addEventListener("mousemove", Move);
+
+             tablet.addEventListener("touchstart", Down, false);
+             tablet.addEventListener("touchend",   Up, false);
+             tablet.addEventListener("touchmove", Move, false);
              
              function Down(e){
               paint = true;

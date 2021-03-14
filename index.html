@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+    <title>DrawToSearch</title>
+</head>
+<body class="body">
+    <header class="header">
+        <h1 class="header__name">Draw to Search</h1>
+        <span class="header__guide">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, dolorum.</span>
+    </header>
+    <main class="draw">
+        <section class="draw__container">
+            <h2 class="draw__name">
+                Automatic conversion
+            </h2>
+
+            
+                <canvas  height="300" style="border:1px solid #ccc;margin:10px;cursor:crosshair;"  id="tablet"></canvas>
+            
+                <script>
+                function init() {
+             
+             var ctx = tablet.getContext('2d');
+             var paint = false;
+             
+             tablet.addEventListener("mousedown", Down);
+             tablet.addEventListener("mouseup",   Up);
+             tablet.addEventListener("mousemove", Move);
+             
+             function Down(e){
+              paint = true;
+              ctx.beginPath();
+              ctx.moveTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+             }
+             
+             function Up(e){
+              paint = false;
+              ctx.closePath();
+             }
+             
+             function Move(e){
+              if( paint == true ){
+               ctx.lineTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+               ctx.stroke();
+              }
+             }
+            }
+            init();
+                </script>
+        </section>
+    </main>
+</body>
+</html>

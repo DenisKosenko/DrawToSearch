@@ -1,0 +1,21 @@
+.header {
+  padding-top: 25px;
+  padding-left: 27px;
+  padding-right: 25px;
+}
+.header__name {
+  display: block;
+  color: #ff3e17;
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 600;
+}
+.header__guide {
+  display: block;
+  margin-top: 15px;
+  color: #1d1d1f;
+  font-size: 19px;
+  line-height: 1.4211;
+  font-weight: 600;
+  letter-spacing: 0.012em;
+}

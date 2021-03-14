@@ -1,0 +1,15 @@
+.draw {
+  margin-top: 35px;
+}
+.draw__container {
+  height: 50vh;
+  border-radius: 20px;
+  background-color: #fff;
+}
+.draw__name {
+  color: ;
+  font-size: 19px;
+  line-height: 1.21053;
+  font-weight: 600;
+  letter-spacing: 0.012em;
+}

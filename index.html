@@ -10,7 +10,11 @@
 </head>
 <body class="body">
     <header class="header">
-        <h1 class="header__name">Draw to Search</h1>
+        <nav class="header__nav">
+            <span class="header__headline">Draw to Search</span>
+            <a class="header__logo" href="https://github.com/DenisKosenko/DrawToSearch"><img src="img/GitHub-Mark-120px-plus.png" alt="github-repository"></a>
+        </nav>
+        <h1 class="header__name">Lorem, ipsum.</h1>
         <span class="header__guide">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, dolorum.</span>
     </header>
     <main class="draw">
@@ -18,45 +22,15 @@
             <h2 class="draw__name">
                 Automatic conversion
             </h2>
-
-            
-                <canvas  height="300" style="border:1px solid #ccc;margin:10px;cursor:crosshair;"  id="tablet"></canvas>
-            
-                <script>
-                function init() {
-             
-             var ctx = tablet.getContext('2d');
-             var paint = false;
-             
-             //tablet.addEventListener("mousedown", Down);
-             //tablet.addEventListener("mouseup",   Up);
-             //tablet.addEventListener("mousemove", Move);
-
-             tablet.addEventListener("touchstart", Down, false);
-             tablet.addEventListener("touchend",   Up, false);
-             tablet.addEventListener("touchmove", Move, false);
-             
-             function Down(e){
-              paint = true;
-              ctx.beginPath();
-              ctx.moveTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-             }
-             
-             function Up(e){
-              paint = false;
-              ctx.closePath();
-             }
-             
-             function Move(e){
-              if( paint == true ){
-               ctx.lineTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-               ctx.stroke();
-              }
-             }
-            }
-            init();
-                </script>
-        </section>
+            <form class="draw__form form" action="#" name="text" method="get">
+                <input class="form__text" type="text">
+                <canvas class="form__canvas" id='sketchpad' width="100"></canvas>
+                <fieldset class="form__button">
+                    <button class="form__button_reset" type="reset">Reset</button>
+                    <button class="form__button_submit" type="submit">Search</button>
+                </fieldset>
+            </form>
+    </section>
     </main>
 </body>
 </html>

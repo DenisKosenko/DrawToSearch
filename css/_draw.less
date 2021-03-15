@@ -3,17 +3,22 @@
     margin-top: 35px;
 
     &__container{
-        height: 50vh;
+        min-height: 50vh;
+        max-height: 60vh;
         border-radius: 20px;
         background-color: #fff;
-        padding: 30px;
+        padding: 30px 30px 15px 30px;
     }
 
     &__name{
-        color: @tomato;
+        //color: @tomato;
+        background: linear-gradient(to right, #f06844 0%, #ee4c54 50%, #d45e95 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         font-size: 19px;
         line-height: 1.21053;
         font-weight: 600;
         letter-spacing: .012em;
     }
 }
+

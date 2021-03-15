@@ -1,17 +1,49 @@
 @tomato:#ff3e17;
 @black:#1d1d1f;
+@gradient:linear-gradient(to right, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%);
+@silver:rgba(0,0,0,0.16);
 
 .header{
-    padding-top: 25px;
-    padding-left: 27px;
-    padding-right: 25px;
+    
+    &__nav{
+        height: 48px;
+        font-size: 19px;
+        line-height: 1.26316;
+        font-weight: 600;
+        letter-spacing: .012em;
+        color: @black;
+        background-color: #fff;
+        opacity: .88;
+        margin-right: -15px;
+        margin-left: -15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-bottom: 1px solid rgba(0,0,0,0.16);
+    }
+
+    &__logo{
+        display: flex;
+        height: 70%;
+        img{
+            height: 100%;
+        }
+    }
 
     &__name{
+        
+        padding-top: 25px;
         display: block;
-        color: @tomato;
+        background: @gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         font-size: 40px;
         line-height: 1.1;
         font-weight: 600;
+        padding-left: 27px;
+        padding-right: 25px;
     }
 
     &__guide{
@@ -22,5 +54,7 @@
         line-height: 1.4211;
         font-weight: 600;
         letter-spacing: .012em;
+        padding-left: 27px;
+        padding-right: 25px;
     }
 }

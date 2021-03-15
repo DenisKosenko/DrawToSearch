@@ -1,12 +1,15 @@
 
+
 window.addEventListener('load', function () {
-  // get the canvas element and its context
+
     let canvas = document.getElementById('sketchpad');
     let context = canvas.getContext('2d');
     let isIdle = true;
 
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
+
+    
 
     function drawstart(event) {
         context.beginPath();
@@ -24,6 +27,7 @@ window.addEventListener('load', function () {
         if (isIdle) return;
         drawmove(event);
         isIdle = true;
+        //context.clearRect(0, 0, canvas.width, canvas.height);
     }
 
     function touchstart(event) { drawstart(event.touches[0]) }
@@ -38,6 +42,16 @@ window.addEventListener('load', function () {
     canvas.addEventListener('mousemove', drawmove, false);
     canvas.addEventListener('mouseup', drawend, false);
 
-}, false); // end window.onLoad
+    reset.onclick = function() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+    };
+
+    search.onclick = function() {
+        let textVelue = document.getElementById('text').value;
+        //window.location.href = 'https://www.google.com.ua/';
+        window.location = '/search?q='+value; 
+    };
+
+}, false);
 
 

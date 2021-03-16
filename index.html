@@ -19,15 +19,13 @@
     </header>
     <main class="draw">
         <section class="draw__container">
-            <h2 class="draw__name">
-                Automatic conversion
-            </h2>
-            <form class="draw__form form" id="myForm" action="/search" name="text" method="post">
+            <h2 class="draw__name">Automatic conversion</h2>
+            <form class="draw__form form" id="myForm" name="form" method="GET">
                 <input class="form__text" id="text" type="text" placeholder="conversion text">
                 <canvas class="form__canvas" id='sketchpad' width="100"></canvas>
                 <fieldset class="form__button">
-                    <button class="form__button_reset" id="reset" type="reset" onreset="clear()">Reset</button>
-                    <button class="form__button_submit" id="search" type="submit" >Search</button>
+                    <button class="form__button_reset" id="reset" type="reset">Reset</button>
+                    <button class="form__button_submit" id="submit" type="submit">Search</button>
                 </fieldset>
             </form>
     </section>

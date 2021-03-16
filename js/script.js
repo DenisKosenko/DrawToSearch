@@ -11,23 +11,30 @@ window.addEventListener('load', function () {
 
     
 
+    function save(){
+        let image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+        window.location.href=image;
+    }
+
     function drawstart(event) {
         context.beginPath();
         context.moveTo(event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop);
         isIdle = false;
+        //clearTimeout(timer);
     }
 
     function drawmove(event) {
         if (isIdle) return;
         context.lineTo(event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop);
         context.stroke();
+        //clearTimeout(timer);
     }
 
     function drawend(event) {
         if (isIdle) return;
         drawmove(event);
         isIdle = true;
-        //context.clearRect(0, 0, canvas.width, canvas.height);
+        timer = setTimeout(save, 5000);
     }
 
     function touchstart(event) { drawstart(event.touches[0]) }
@@ -36,7 +43,7 @@ window.addEventListener('load', function () {
 
     canvas.addEventListener('touchstart', touchstart, false);
     canvas.addEventListener('touchmove', touchmove, false);
-    canvas.addEventListener('touchend', touchend, false);        
+    canvas.addEventListener('touchend', touchend, false);
 
     canvas.addEventListener('mousedown', drawstart, false);
     canvas.addEventListener('mousemove', drawmove, false);
@@ -46,10 +53,13 @@ window.addEventListener('load', function () {
         context.clearRect(0, 0, canvas.width, canvas.height);
     };
 
-    search.onclick = function() {
+    submit.onclick = function() {
         let textVelue = document.getElementById('text').value;
-        //window.location.href = 'https://www.google.com.ua/';
-        window.location = '/search?q='+value; 
+        let form = document.getElementById('myForm');
+        let search = 'https://duckduckgo.com/' + textVelue;
+
+        form.setAttribute("action", search);
+
     };
 
 }, false);

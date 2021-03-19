@@ -22,10 +22,10 @@
         padding-left: 15px;
         padding-right: 15px;
         border-bottom: 1px solid rgba(0,0,0,0.16);
+        .media-padding(150px, 992px);
     }
 
     &__logo{
-
         display: flex;
         height: 70%;
         img{
@@ -34,7 +34,7 @@
     }
 
     &__name{
-        
+        .media-padding(150px, 992px);
         padding-top: 25px;
         display: block;
         background: @gradient;
@@ -48,6 +48,7 @@
     }
 
     &__guide{
+        .media-padding(150px, 992px);
         display: block;
         margin-top: 15px;
         color: @black;
@@ -57,5 +58,26 @@
         letter-spacing: .012em;
         padding-left: 27px;
         padding-right: 25px;
+    }
+    
+    &__handwrite{
+        margin-top: 20px;
+        margin-left: 25px;
+        margin-right: 25px;
+        @media(min-width: 992px){
+            margin-left: 175px;
+            margin-right: 175px;
+            
+        }
+        max-height: 70px;
+        border: 2px solid #e5e3ea;
+        border-radius: 20px;
+    }
+
+    &__img{
+        max-height: 70px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: -30px;
     }
 }

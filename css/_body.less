@@ -16,3 +16,10 @@ html{
     padding-right: 15px;
     min-height: -webkit-fill-available;
 }
+
+.media-padding(@padding, @width){
+    @media (min-width: @width) {
+        padding-left: @padding;
+        padding-right: @padding;
+    }
+}

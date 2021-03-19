@@ -140,6 +140,12 @@ html {
   padding-right: 15px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.16);
 }
+@media (min-width: 992px) {
+  .header__nav {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+}
 .header__logo {
   display: flex;
   height: 70%;
@@ -159,6 +165,12 @@ html {
   padding-left: 27px;
   padding-right: 25px;
 }
+@media (min-width: 992px) {
+  .header__name {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+}
 .header__guide {
   display: block;
   margin-top: 15px;
@@ -170,8 +182,40 @@ html {
   padding-left: 27px;
   padding-right: 25px;
 }
+@media (min-width: 992px) {
+  .header__guide {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+}
+.header__handwrite {
+  margin-top: 20px;
+  margin-left: 25px;
+  margin-right: 25px;
+  max-height: 70px;
+  border: 2px solid #e5e3ea;
+  border-radius: 20px;
+}
+@media (min-width: 992px) {
+  .header__handwrite {
+    margin-left: 175px;
+    margin-right: 175px;
+  }
+}
+.header__img {
+  max-height: 70px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: -30px;
+}
 .draw {
   margin-top: 35px;
+}
+@media (min-width: 992px) {
+  .draw {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
 }
 .draw__container {
   min-height: 50vh;
@@ -221,23 +265,32 @@ html {
   border: none;
   z-index: 1;
 }
-.form__button_reset {
+.form__button .botton__style {
   cursor: pointer;
-  margin-right: 10px;
   width: 50%;
   font-size: 17px;
   line-height: 1.17648;
   font-weight: 400;
-  padding-left: 25px;
-  padding-right: 25px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding: 8px 25px;
   border-radius: 18px;
-  background-color: #ffffff;
-  border: 2px solid rgba(255, 255, 255, 0);
   outline: none;
   transition-duration: 0.3s;
   animation-direction: alternate;
+}
+.form__button_reset {
+  cursor: pointer;
+  width: 50%;
+  font-size: 17px;
+  line-height: 1.17648;
+  font-weight: 400;
+  padding: 8px 25px;
+  border-radius: 18px;
+  outline: none;
+  transition-duration: 0.3s;
+  animation-direction: alternate;
+  margin-right: 10px;
+  background-color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0);
 }
 .form__button_reset:hover {
   border: 2px solid #1d1d1f;
@@ -251,12 +304,12 @@ html {
   font-weight: 400;
   padding: 8px 25px;
   border-radius: 18px;
-  background: linear-gradient(to right, #ee4c54 0%, #d45e95 100%);
-  color: rgba(255, 255, 255, 0.98);
-  border: none;
   outline: none;
   transition-duration: 0.3s;
   animation-direction: alternate;
+  border: none;
+  background: linear-gradient(to right, #ee4c54 0%, #d45e95 100%);
+  color: rgba(255, 255, 255, 0.98);
 }
 .form__button_submit:hover {
   transform: scale(0.95);

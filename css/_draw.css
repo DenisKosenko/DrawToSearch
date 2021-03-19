@@ -1,6 +1,12 @@
 .draw {
   margin-top: 35px;
 }
+@media (min-width: 992px) {
+  .draw {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+}
 .draw__container {
   min-height: 50vh;
   max-height: 60vh;

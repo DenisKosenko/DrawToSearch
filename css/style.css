@@ -122,6 +122,9 @@ html {
   padding-right: 15px;
   min-height: -webkit-fill-available;
 }
+.header {
+  display: block;
+}
 .header__nav {
   height: 48px;
   font-size: 19px;
@@ -189,12 +192,15 @@ html {
   }
 }
 .header__handwrite {
+  width: 30%;
+  min-width: 285px;
   margin-top: 20px;
   margin-left: 25px;
-  margin-right: 25px;
+  margin-right: 40px;
   max-height: 70px;
   border: 2px solid #e5e3ea;
-  border-radius: 20px;
+  border-radius: 17px;
+  padding-bottom: 8px;
 }
 @media (min-width: 992px) {
   .header__handwrite {
@@ -203,7 +209,7 @@ html {
   }
 }
 .header__img {
-  max-height: 70px;
+  max-height: 60px;
   padding-left: 10px;
   padding-right: 10px;
   margin-bottom: -30px;
@@ -223,6 +229,11 @@ html {
   border-radius: 20px;
   background-color: #fff;
   padding: 30px 30px 15px 30px;
+}
+@media (orientation: landscape) and (max-height: 676px) {
+  .draw__container {
+    min-height: 95vh;
+  }
 }
 .draw__name {
   background: linear-gradient(to right, #f06844 0%, #ee4c54 50%, #d45e95 100%);
@@ -313,4 +324,11 @@ html {
 }
 .form__button_submit:hover {
   transform: scale(0.95);
+}
+.footer {
+  margin-top: 35px;
+  font-size: 12px;
+  color: #515154;
+  text-align: center;
+  margin-bottom: 10px;
 }

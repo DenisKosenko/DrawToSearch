@@ -3,13 +3,12 @@
 window.addEventListener('load', function () {
 
     let canvas = document.getElementById('sketchpad');
+    let submit = document.getElementById('submit');
     let context = canvas.getContext('2d');
     let isIdle = true;
 
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
-
-    
 
     function save(){
         let image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
@@ -34,7 +33,14 @@ window.addEventListener('load', function () {
         if (isIdle) return;
         drawmove(event);
         isIdle = true;
-        timer = setTimeout(save, 5000);
+        //timer = setTimeout(save, 5000);
+        let cleanCanvas = isCanvasBlank(canvas)
+        if(!cleanCanvas){
+            submit.innerText = 'Convert';
+        }else{
+            submit.innerText = 'Search';
+        }
+        return cleanCanvas;
     }
 
     function touchstart(event) { drawstart(event.touches[0]) }
@@ -51,16 +57,27 @@ window.addEventListener('load', function () {
 
     reset.onclick = function() {
         context.clearRect(0, 0, canvas.width, canvas.height);
+        submit.innerText = 'Search';
     };
 
     submit.onclick = function() {
-        let textVelue = document.getElementById('text').value;
-        let form = document.getElementById('myForm');
-        let search = 'https://duckduckgo.com/' + textVelue;
-
-        form.setAttribute("action", search);
-
+        if(submit.innerText == 'Search'){
+            let textVelue = document.getElementById('text').value;
+            let form = document.getElementById('myForm');
+            let search = 'https://duckduckgo.com/' + textVelue;
+            form.setAttribute("action", search);
+        }else{
+alert(1)
+        }
+        
     };
+
+    function isCanvasBlank(canvas) {
+        var blank = document.createElement('canvas');
+        blank.width = canvas.width;
+        blank.height = canvas.height;
+        return canvas.toDataURL() == blank.toDataURL();
+    }
 
 }, false);
 

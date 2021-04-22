@@ -10,30 +10,41 @@ window.addEventListener('load', function () {
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
 
-    function save(){
+    async function save(){
         let image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-        window.location.href=image;
+        searchText = await Recognition(image)
+        return searchText
+    }
+
+    async function Recognition(image){
+        let searchText = await Tesseract.recognize(
+            image,
+            'eng',
+            { logger: m => console.log(m)}
+        ).then(({data: {text}}) => {
+            console.log(text);
+            return(text)
+        })
+        return searchText
     }
 
     function drawstart(event) {
         context.beginPath();
         context.moveTo(event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop);
         isIdle = false;
-        //clearTimeout(timer);
     }
 
     function drawmove(event) {
         if (isIdle) return;
         context.lineTo(event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop);
         context.stroke();
-        //clearTimeout(timer);
     }
 
     function drawend(event) {
         if (isIdle) return;
         drawmove(event);
         isIdle = true;
-        //timer = setTimeout(save, 5000);
+        //save()
         let cleanCanvas = isCanvasBlank(canvas)
         if(!cleanCanvas){
             submit.innerText = 'Convert';
@@ -60,16 +71,21 @@ window.addEventListener('load', function () {
         submit.innerText = 'Search';
     };
 
-    submit.onclick = function() {
+    submit.onclick = async function() {
+
+        let textVelue = document.getElementById('text').value;
         if(submit.innerText == 'Search'){
-            let textVelue = document.getElementById('text').value;
+            submit.type = 'submit'
             let form = document.getElementById('myForm');
             let search = 'https://duckduckgo.com/' + textVelue;
             form.setAttribute("action", search);
         }else{
-alert(1)
+            submit.type = 'button';
+            document.getElementById('text').value = await save()
+            //document.getElementById('text').value = ''
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            submit.innerText = 'Search';
         }
-        
     };
 
     function isCanvasBlank(canvas) {

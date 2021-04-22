@@ -44,7 +44,6 @@ window.addEventListener('load', function () {
         if (isIdle) return;
         drawmove(event);
         isIdle = true;
-        //save()
         let cleanCanvas = isCanvasBlank(canvas)
         if(!cleanCanvas){
             submit.innerText = 'Convert';
@@ -82,7 +81,6 @@ window.addEventListener('load', function () {
         }else{
             submit.type = 'button';
             document.getElementById('text').value = await save()
-            //document.getElementById('text').value = ''
             context.clearRect(0, 0, canvas.width, canvas.height);
             submit.innerText = 'Search';
         }

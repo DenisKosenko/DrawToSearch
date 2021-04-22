@@ -88,6 +88,10 @@ window.addEventListener('load', function () {
         }
     };
 
+    let x = window.scrollX;
+    let y = window.scrollY;
+    window.onscroll = function(){window.scrollTo(x, y);};
+
     function isCanvasBlank(canvas) {
         var blank = document.createElement('canvas');
         blank.width = canvas.width;
